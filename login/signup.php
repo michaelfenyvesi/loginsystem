@@ -1,12 +1,11 @@
-
 <?php
-include 'includes/header.php';
+include 'header.php';
 ?>
 <div id="all">
-	<div id="main">
-		<div id="form">
-			<form action="includes/register.inc.php" method="POST">
-				<p id="hdx">Registrieren</p>
+		<div id="main">
+			<div id="form">
+				<form action="includes/register.inc.php" method="POST">
+					<h1 class="ueberschrift">Registrieren</h1>
 				
 				<?php
 				if (isset($_GET['error'])) {
@@ -26,12 +25,12 @@ include 'includes/header.php';
 							}
 							else if ($_GET['error'] == "falscheemail") {
 								?>
-								<p class="errormsg">Ungültige E-Mail</p>
+								<p class="errormsg">Ung&uumlltige E-Mail</p>
 							<?php
 							}
 							else if ($_GET['error'] == "falschespasswort") {
 							?>
-								<p class="errormsg">Passwörter stimmen nicht überein</p>
+								<p class="errormsg">PasswÃ¶rter stimmen nicht Ã¼berein</p>
 							<?php 
 							}
 							else if ($_GET['error'] == "passwortunsicher") {
@@ -56,13 +55,13 @@ include 'includes/header.php';
 				}
 				?>
 		
-				<h3>Persönliche Daten</h3>
+				<h2 class="ueberschrift" >Pers&oumlnliche Daten</h3>
 				
 					<input type="text" name="vorname" placeholder="Vorname" class="input">
 
 					<input type="text" name="nachname" placeholder="Nachname" class="input">
 
-				<h3>Spieldaten</h3>
+				<h2 class="ueberschrift">Spieldaten</h3>
 					
 						
 		
@@ -75,19 +74,22 @@ include 'includes/header.php';
 						
 					<input type="text" name="email" placeholder="E-Mail" class="input">
 						
-					<input type="password" name="password" placeholder="Passwort" class="input">
+					<input type="password" name="passwort" placeholder="Passwort" class="input">
 						
-					<input type="password" name="password2" placeholder="Passwort Wiederholen" class="input">
+					<input type="password" name="passwort2" placeholder="Passwort Wiederholen" class="input">
 						
 					<input type="submit" name="submit" id="main_login" value="registrieren">
 					
-					<div id="">
-						<a href="login.php"><p>Du haast bereits ein Konto?</P></a>
-					</div>
+					
+					<a id="lostpwd" href="login.php"><p>Du haast bereits ein Konto?</P></a>
+
 			</form>	
 		</div>
 	</div>
 </div>
+
+<footer>
+<footer>
 
 </body>
 </html>
