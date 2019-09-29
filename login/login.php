@@ -1,12 +1,12 @@
 
-	<?php
-	include 'includes/header.php';
+		<?php
+	include 'header.php';
 	?>
 	<div id="all">
 		<div id="main">
 			<div id="form">
 				<form action="includes/login.inc.php" method="post">
-					<p id="hdx">Login</p>
+					<h1 class="ueberschrift">Login</h1>
 					<?php
 					if (isset($_GET['error'])) {
 					?>
@@ -15,7 +15,7 @@
 							if(isset($_GET['error'])) {
 								if($_GET['error'] =="zuwenigangaben") {
 								?>
-									<p class="errormsg">Bitte füllen Sie alle Pflichtfelder aus</p>
+									<p class="errormsg">Bitte f&uumlllen Sie alle Pflichtfelder aus</p>
 								<?php
 								}
 								else if ($_GET['error'] == "falschespasswort") {
@@ -43,12 +43,17 @@
 					<input type="text" name="uidinput" placeholder="Benutzername" class="input">
 		
 					<input type="password" name="pwdhdx" placeholder="Passwort" class="input"><br>
-			
+					
 					<input type="submit" name="submit"id="main_login" value="login">
+					
+					<a id="lostpwd" href=""><p>Passwort vergessen?</P></a>
 
 				</form>
 			</div>
 		</div>
 	</div>
+	
+	<footer>
+	<footer>
 </body>
 </html>
