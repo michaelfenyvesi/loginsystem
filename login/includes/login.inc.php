@@ -2,16 +2,16 @@
 	require 'dbh.inc.php';
 	
 	$uid = $_POST['uidinput'];
-	$password = $_POST['pwdhdx'];
+	$passwort = $_POST['pwdhdx'];
 	$url = $_SERVER['REQUEST_URI'];
 	
-	if (empty($uid) or empty($password)) {
+	if (empty($uid) or empty($passwort)) {
 		header("location: ../login.php?error=zuwenigangaben");
 		exit();
 	}
 	else {
-		$sql ="SELECT * FROM register WHERE uid=?";
-		$stmt = mysqli_stmt_init($conn);
+		$sql ="SELECT * FROM login WHERE uid=?";
+		$stmt = mysqli_stmt_init($db);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
 			header("location: ../login.php?error=sqlerror");
 			exit();
@@ -22,7 +22,7 @@
 			$result = mysqli_stmt_get_result($stmt);
 			
 			if ($row = mysqli_fetch_assoc($result)) {
-				$pwdCheck = password_verify($password, $row['pwd']);
+				$pwdCheck = password_verify($passwort, $row['passwort']);
 				
 				
 				if ($pwdCheck == true) {
