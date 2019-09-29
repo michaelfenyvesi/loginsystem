@@ -9,8 +9,8 @@ if(isset($_POST['submit'])) {
 	$avatar = $_POST["avatar"];
 	$uid = $_POST["uid"];
 	$email = $_POST["email"];
-	$passwort1 = $_POST["password"];
-	$passwort2 = $_POST["password2"];
+	$passwort1 = $_POST["passwort"];
+	$passwort2 = $_POST["passwort2"];
 	
 	
 
@@ -39,8 +39,8 @@ if(isset($_POST['submit'])) {
 	}
 
 	else {
-		$sql = "SELECT uid FROM register Where uid=?";
-		$stmt = mysqli_stmt_init($conn);
+		$sql = "SELECT uid FROM login Where uid=?";
+		$stmt = mysqli_stmt_init($db);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
 			header("location: ../signup.php?error=sqlerror");
 			exit();
@@ -55,8 +55,8 @@ if(isset($_POST['submit'])) {
 				exit();
 			}
 			else {
-				$sql = "INSERT INTO  register(first, last, avatar, uid, email, pwd) VALUES(?,?,?,?,?,?)";
-				$stmt = mysqli_stmt_init($conn);
+				$sql = "INSERT INTO  login(vorname, nachname, avatar, uid, email, passwort) VALUES(?,?,?,?,?,?)";
+				$stmt = mysqli_stmt_init($db);
 				if (!mysqli_stmt_prepare($stmt, $sql)) {
 					header("location: ../signup.php?error=sqlerror");
 					exit();
@@ -76,5 +76,5 @@ if(isset($_POST['submit'])) {
 	}
 
 	mysqli_stmt_close($stmt);
-	mysqli_close($conn);
+	mysqli_close($db);
 	
