@@ -4,10 +4,10 @@ $dbuserdame="root";
 $dbpassword="";
 $dbname="loginsystem";
 
+$db = mysqli_connect("localhost", "root", "", "loginsystem");
 
-$conn = mysqli_connect($servername, $dbuserdame, $dbpassword, $dbname);
 
-if (!$conn) {
-	die("Connection fehlgeschlagen: ".mysqli_connect_error());
+if(!$db)
+{
+  die("Verbindungsfehler: ".mysqli_connect_error());
 }
-?>
